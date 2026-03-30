@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Brain Tumor Detection | AI Research</title>
+
+<style>
+
+body{
+font-family: "Segoe UI", Arial, sans-serif;
+background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+text-align:center;
+margin:0;
+padding:0;
+}
+
+.header{
+padding:30px;
+}
+
+.header h1{
+font-size:32px;
+margin-bottom:5px;
+}
+
+.header p{
+font-size:16px;
+color:#ddd;
+}
+
+.container{
+width:420px;
+margin:auto;
+background:white;
+color:black;
+padding:30px;
+border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,0.3);
+}
+
+.upload-box{
+border:2px dashed #aaa;
+padding:20px;
+border-radius:10px;
+margin-bottom:20px;
+}
+
+input[type="file"]{
+margin-top:10px;
+}
+
+button{
+padding:12px 25px;
+background:#27ae60;
+color:white;
+border:none;
+border-radius:5px;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#1e8449;
+}
+
+.result{
+margin-top:20px;
+padding:15px;
+background:#f4f6f7;
+border-radius:8px;
+}
+
+img{
+margin-top:10px;
+border-radius:8px;
+border:3px solid #ddd;
+}
+
+.footer{
+margin-top:30px;
+font-size:13px;
+color:#ccc;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<h1>🧠 Brain Tumor Detection</h1>
+<p>Deep Learning Based MRI Analysis</p>
+
+</div>
+
+<div class="container">
+
+<form action="/predict" method="post" enctype="multipart/form-data">
+
+<div class="upload-box">
+
+<p><b>Upload MRI Image</b></p>
+<input type="file" name="file" required>
+
+</div>
+
+<button type="submit">Analyze MRI</button>
+
+</form>
+
+{% if prediction %}
+
+<div class="result">
+
+<h3>Prediction Result</h3>
+
+<h2>{{prediction}}</h2>
+
+<p><b>Confidence:</b> {{confidence}} %</p>
+
+<img src="{{img_path}}" width="260">
+
+</div>
+
+{% endif %}
+
+</div>
+
+<div class="footer">
+
+<p>AI Medical Imaging Research | CNN Model</p>
+
+</div>
+
+</body>
+
+</html>
